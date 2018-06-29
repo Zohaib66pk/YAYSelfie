@@ -7,12 +7,15 @@ module.exports = function (app) {
     .post(user.create_user)
   
   app.route('/forget_password/:email')
-    .get(user.send_email);
+    .get(user.send_email)
+
+  app.route('/change_password_email')
+    .get(user.change_password_email)
 
   app.route('/user/:user_id')
     .get(user.get_user)
     .put(user.update_user);
     
   app.route('/login')
-    .post(user.login);
+    .post(user.login)
   };

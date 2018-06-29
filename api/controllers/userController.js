@@ -92,3 +92,13 @@ exports.send_email = function (req, res) {
   });
 }
 
+exports.change_password_email =  function (req, res) {
+  User.findOneAndUpdate({token: req.body.token}, {token: "", password: req.body.password}, function (err, user){
+
+    if(err) { res.send({status: 0, message: err.message}) }
+    else{
+      res.json({status: 1, data:user})
+    }
+  });
+}
+
