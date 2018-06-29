@@ -25,6 +25,10 @@ var UsersSchema = new Schema ({
       return this.user_type === 0;
     }, 'Password is required!']
   },
+  token: {
+    type: String,
+    default: ""
+  }
 }, {timestamps: true});
 
 module.exports = mongoose.model("Users", UsersSchema);
